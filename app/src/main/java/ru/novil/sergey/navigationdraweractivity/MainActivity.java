@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import ru.novil.sergey.navigationdraweractivity.sqlite.DatabaseHelper;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity
     Fragment fragment = null;
     Class fragmentClass = null;
 
+    public TextView content_main;
+
     private DatabaseHelper mDatabaseHelper;
     private SQLiteDatabase mSqLiteDatabase;
     FirstFragment start;
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView content_main = (TextView) findViewById(R.id.content_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
