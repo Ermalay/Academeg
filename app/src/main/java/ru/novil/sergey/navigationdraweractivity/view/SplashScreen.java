@@ -23,7 +23,10 @@ import java.net.URL;
 
 import ru.novil.sergey.navigationdraweractivity.MainActivity;
 import ru.novil.sergey.navigationdraweractivity.R;
+<<<<<<< HEAD
 import ru.novil.sergey.navigationdraweractivity.sqlite.DatabaseHelper;
+=======
+>>>>>>> origin/master
 import ru.novil.sergey.navigationdraweractivity.sqlite.MyAsyncTask;
 
 public class SplashScreen extends AppCompatActivity {
@@ -42,6 +45,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+<<<<<<< HEAD
 //        MyAsyncTask myAsyncTask = new MyAsyncTask(this);
 //        myAsyncTask.execute();
 
@@ -150,11 +154,19 @@ public class SplashScreen extends AppCompatActivity {
                 cursor.close();
                 mSqLiteDatabase.close();
 
+=======
+        final MyAsyncTask myAsyncTask = new MyAsyncTask();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+>>>>>>> origin/master
                 Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
 
+<<<<<<< HEAD
 
 //                    fillArrayItems();           //заполняем массивы для адаптера
 //                        fillAdapterListVideo();     //заполняем ListView адаптером
@@ -199,5 +211,10 @@ public class SplashScreen extends AppCompatActivity {
         String query = "select * from " + DatabaseHelper.DATABASE_TABLE;
         cursor = mSqLiteDatabase.rawQuery(query, null);
         return cursor;
+=======
+                myAsyncTask.execute();
+            }
+        }, 3*1000);
+>>>>>>> origin/master
     }
 }
