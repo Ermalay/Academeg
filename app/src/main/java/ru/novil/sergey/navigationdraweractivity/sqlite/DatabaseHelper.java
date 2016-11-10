@@ -32,6 +32,11 @@ public class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    public DatabaseHelper(MyAsyncTask myAsyncTask) {
+        super(null, DATABASE_NAME, null, DATABASE_VERSION);
+
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DATABASE_CREATE_SCRIPT);

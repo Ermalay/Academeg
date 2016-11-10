@@ -35,6 +35,7 @@ import java.net.URL;
 
 import ru.novil.sergey.navigationdraweractivity.sqlite.DatabaseHelper;
 import ru.novil.sergey.navigationdraweractivity.view.SlidingTabLayout;
+import ru.novil.sergey.navigationdraweractivity.view.SplashScreen;
 
 public class FirstFragment extends Fragment {
 
@@ -197,7 +198,7 @@ public class FirstFragment extends Fragment {
 
                     @Override
                     public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-                        if ((i == i2 - 20) && loadingMore){
+                        if ((i == i2 - 5) && loadingMore){
                             loadingMore = false;
                             pageToken = nextPageToken;
                             new ParseTask().execute();
@@ -230,7 +231,8 @@ public class FirstFragment extends Fragment {
                         Toast.makeText(getActivity(), "Кнопочку нажали!!!", Toast.LENGTH_SHORT).show();
                         pageToken = nextPageToken;
                         new ParseTask().execute();
-
+//                        SplashScreen splashScreen = new SplashScreen();
+//                        splashScreen.
                     }
                 });
 
@@ -288,7 +290,7 @@ public class FirstFragment extends Fragment {
                 try {
                     String firstPartURL = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet";
                     String maxResults = "&maxResults=";
-                    String maxResultsKey = "50";
+                    String maxResultsKey = "6";
                     String prePageToken = "&pageToken=";
                     String playlistId = "&playlistId=";
 //                    String playlistIdKey = "UUM0RSbJnk0nAUvfH4Pp7mjQ";    //мой канал

@@ -6,16 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="ru.novil.sergey.navigationdraweractivity.view.SplashScreen"
-    android:weightSum="1">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/logo"
-        android:id="@+id/imageView2"
-        android:adjustViewBounds="true"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_weight="0.59" />
+    tools:context="ru.novil.sergey.navigationdraweractivity.view.SplashScreen"
+    android:weightSum="1"
+    android:orientation="vertical">
+
 </LinearLayout>

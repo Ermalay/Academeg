@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import ru.novil.sergey.navigationdraweractivity.sqlite.DatabaseHelper;
@@ -29,10 +30,16 @@ public class MainActivity extends AppCompatActivity
     private SQLiteDatabase mSqLiteDatabase;
     FirstFragment start;
 
+    TextView matv1;
+
+    private static long back_pressed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        matv1 = (TextView) findViewById(R.id.matv1);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -72,14 +79,20 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+//            super.onBackPressed();
+            if (back_pressed + 2000 > System.currentTimeMillis()){
+                super.onBackPressed();
+            }
+            else
+                Toast.makeText(getBaseContext(), "Нажмите дважды для выхода",
+                        Toast.LENGTH_SHORT).show();
+            back_pressed = System.currentTimeMillis();
         }
     }
 
